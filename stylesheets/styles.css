@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'airstreamregular';
+  src: url('fonts/Airstream-webfont.eot');
+  src: url('./fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/Airstream-webfont.woff') format('woff'), url('fonts/Airstream-webfont.ttf') format('truetype'), url('fonts/Airstream-webfont.svg#airstreamregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'lakeshore';
   src: url('fonts/LAKESHOR-webfont.eot');
   src: url('fonts/LAKESHOR-webfont.eot/#iefix') format('embedded-opentype'), url('fonts/LAKESHOR-webfont.woff') format('woff'), url('fonts/LAKESHOR-webfont.ttf') format('truetype'), url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
@@ -7,6 +15,7 @@
 }
 
 /* 不是很明白，调小了会消失 */
+
 html, body {
   height: 100%;
 }
@@ -14,12 +23,12 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-
   font-size: 10px;
   background: rgb(149, 194, 215);
 }
 
 a {
+  /* 去掉文字下划线 */
   text-decoration: none;
 }
 
@@ -41,13 +50,11 @@ a {
   flex-direction: column;
 }
 
-.thumbnail-item + .thumbnail-item {
-  margin-top: 10px;
-}
-
 .thumbnail-item {
+  /* 列表元素水平排列*/
   display: inline-block;
-  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
 }
@@ -55,18 +62,26 @@ a {
 .thumbnail-list {
   flex: 0 1 auto;
   order: 2;
-  /* display: flex; */
+  display: flex;
+  justify-content: space-between;
+   /* 去掉列表头的圆点 */
   list-style: none;
   padding: 0;
+   /* 不包裹空间，可无限制往右水平排列 */
   white-space: nowrap;
+    /* 加水平滚动条 */
   overflow-x: auto;
 }
 
 .detail-image-container {
   flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .thumbnail-image {
+  /* 去掉图片底的小空隙 */
   display: block;
   width: 100%;
 }
@@ -80,6 +95,22 @@ a {
   font-size: 18px;
 }
 
+.detail-image-frame {
+  position: relative;
+  text-align: center;
+}
+
 .detail-image {
   width: 90%;
+}
+
+.detail-image-title {
+  position: absolute;
+  bottom: -16px;
+  left: 4px;
+
+  font-family: airstreamregular;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+  font-size: 40px;
 }
